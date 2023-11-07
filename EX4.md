@@ -14,18 +14,12 @@ To create a procedure using PL/SQL.
 ## Program:
 ```sql
 create table employ( empid number,empname varchar(10),dept varchar(10),salary number);
-
 CREATE OR REPLACE PROCEDURE insert_employ_data AS
 BEGIN
-
 INSERT INTO employ (empid,empname,dept,salary) VALUES (1,'John','HR',50000);
-
 INSERT INTO employ (empid,empname,dept,salary) VALUES (2,'Joe','IT',60000);
-
 INSERT INTO employ (empid,empname,dept,salary) VALUES (3,'Bob','Finance',55000);
-
 COMMIT;
-
 FOR emp_rec IN (SELECT * FROM employ) LOOP
 DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_rec.empid || ',Employee Name: ' || emp_rec.empname || ', Department: ' || emp_rec.dept || ', Salary:' || emp_rec.salary);
 END LOOP;
